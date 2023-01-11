@@ -4,11 +4,12 @@ var Addresses = ({ data }) => {
     let defaultAddresses = data.defaultAddress;
     let addresses = data.addresses.nodes;
     return (
-        <div className="App-header">
-            <img src="phone-book.png" />
-            <Link to={"/"}>go back</Link>
-            <h1>Addresses</h1>
-            <h4>Default Address</h4>
+        <div className="container">
+            <h1 className="header">Addresses</h1>
+            <div className="center">
+                <Link className="Link" to={"/"}><img className="icon" src="arrow-left.png"></img></Link>
+            </div>
+            {/* <h4>Default Address</h4> */}
             <div>
                 <table>
                     <thead>
@@ -43,6 +44,7 @@ var Addresses = ({ data }) => {
 
                 </table>
             </div>
+
             <h4>Addresses</h4>
             <table>
                 <thead>

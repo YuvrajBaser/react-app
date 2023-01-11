@@ -11,15 +11,16 @@ var OrdersAllProducts = ({ data }) => {
         // console.log(orderNumber, products);
     }
     return (
-        <div className="App-header">
-            <h1>All Products</h1>
-            <Link to={"/orders"}>go back</Link>
+        <div className="container">
+            <h1 className="header" >All Products</h1>
+            <div className="center">
+                <button className="btn"><Link className="Link" to={"/Orders"}><h3>Go Back</h3></Link></button>
+            </div>
             <table>
                 <thead>
                     <tr>
                         <th>Product Title</th>
                         <th>Quantity</th>
-                        <th>Variant</th>
                         <th>Total Price</th>
                         <th>Discounted Total Price</th>
                         <th>More Details</th>
@@ -31,10 +32,9 @@ var OrdersAllProducts = ({ data }) => {
                             <tr>
                                 <td>{key?.title}</td>
                                 <td>{key?.quantity}</td>
-                                <td>{key?.variant}</td>
                                 <td>{key?.originalTotalPrice.currencyCode + " " + key?.originalTotalPrice.amount}</td>
                                 <td>{key?.discountedTotalPrice.currencyCode + " " + key?.discountedTotalPrice.amount}</td>
-                                <td><Link to={`/Orders/${orderNumber}/${key?.title}`}>Click</Link></td>
+                                <td><button className="btn"><Link className="Link" to={`/Orders/${orderNumber}/${key?.title}`}><h3>Show Product Details</h3></Link></button></td>
                                 {/* <td><Link to={`/Orders/${orderNumber}/${index}`}>Click</Link></td> */} {/*can be done with the index of map also*/}
                             </tr>
                         </tbody>

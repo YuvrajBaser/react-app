@@ -8,6 +8,7 @@ import OrdersAllProducts from './components/OrdersAllProducts';
 import OrdersSingleProduct from './components/OrdersSingleProduct';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Loader from './components/Loader';
 let api_url = 'https://cdn.shopify.com/s/files/1/0017/3103/5196/files/ExampleQuery_1.json?v=1673248503#';
 
 function App() {
@@ -34,9 +35,8 @@ function App() {
   if (error) {
     return <div>{error.message}</div>
   } else if (!loading) {
-    return <div>Loading...</div>
+    return <Loader />
   } else {
-
     return (
       <>
         <BrowserRouter>
@@ -44,7 +44,6 @@ function App() {
             <Route path="/" element={<CustomerProfile data={data.data.customer} />} />
             <Route path="/Addresses" element={<Addresses data={data.data.customer} />} />
             <Route path="/Orders" element={<Orders data={data.data.customer} />} />
-
             <Route path="/Orders/:orderNumber" element={<OrdersAllProducts data={data.data.customer} />} />
             <Route path="/Orders/:orderNumber/:title" element={<OrdersSingleProduct data={data.data.customer} />} />
           </Routes>

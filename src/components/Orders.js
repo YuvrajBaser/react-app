@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 var Orders = ({ data }) => {
     let orders = data.orders.nodes;
     return (
-        <div className="App-header">
-            <h1>Orders</h1>
-            <Link to={"/"}>go back</Link>
+        <div className="container">
+            <h1 className="header">Orders</h1>
+            <div className="center">
+                <Link className="Link" to={"/"}><img className="icon" src="arrow-left.png"></img></Link>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -14,7 +16,7 @@ var Orders = ({ data }) => {
                         <th>Email</th>
                         <th>Financial Status</th>
                         <th>Processed At</th>
-                        <th>Order Items</th>
+                        <th>Product Details</th>
                     </tr>
                 </thead>
                 {orders.map((key, value) => {
@@ -26,7 +28,7 @@ var Orders = ({ data }) => {
                                 <td>{key?.email}</td>
                                 <td>{key?.financialStatus}</td>
                                 <td>{key?.processedAt}</td>
-                                <td><Link to={`/Orders/${key?.orderNumber}`}>Click</Link></td>
+                                <td><button className="btn"><Link className="Link" to={`/Orders/${key?.orderNumber}`}><h3>Show Products</h3></Link></button></td>
                             </tr>
                         </tbody>
                     );

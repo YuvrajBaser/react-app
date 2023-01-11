@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 var OrdersSingleProduct = ({ data }) => {
     let allProducts = data.orders.nodes;
@@ -17,32 +17,30 @@ var OrdersSingleProduct = ({ data }) => {
     console.log(singleProduct.length);
 
     return (
-        <div>
-            <h1>Single Product component</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Title</th>
-                        <th>Quantity</th>
-                        <th>Variant</th>
-                        <th>Total Price</th>
-                        <th>Discounted Total Price</th>
-                    </tr>
-                </thead>
-                {singleProduct.map((key, value) => {
-                    return (
-                        <tbody>
-                            <tr>
-                                <td>{key?.title}</td>
-                                <td>{key?.quantity}</td>
-                                <td>{key?.variant}</td>
-                                <td>{key?.originalTotalPrice.currencyCode + " " + key?.originalTotalPrice.amount}</td>
-                                <td>{key?.discountedTotalPrice.currencyCode + " " + key?.discountedTotalPrice.amount}</td>
-                            </tr>
-                        </tbody>
-                    );
-                })}
-            </table>
+        <div className="container height">
+            <div className="card">
+                <img src="https://cdn-icons-png.flaticon.com/256/679/679922.png"></img>
+
+                <h1 className="header">Product Details</h1>
+                <div className="center">
+                    <button className="btn"><Link className="Link" to={`/Orders/${orderNumber}`}><h3>Go Back</h3></Link></button>
+                    <button className="btn"><Link className="Link" to={`/`}><h3>Profile</h3></Link></button>
+                </div>
+                <div>
+                    {
+                        singleProduct.map((key) => {
+                            return (
+                                <div>
+                                    <h4>Product Title: {key.title}</h4>
+                                    <h4>Product Quantity: {key.quantity}</h4>
+                                    <h4>Total Price: {key?.originalTotalPrice.currencyCode + " " + key?.originalTotalPrice.amount}</h4>
+                                    <h4>Discounted Total Price: {key?.discountedTotalPrice.currencyCode + " " + key?.discountedTotalPrice.amount}</h4>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
         </div>
     );
 

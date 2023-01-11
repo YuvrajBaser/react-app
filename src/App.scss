@@ -1,34 +1,122 @@
-$myColor: #6b809f;
+$myColor: rgba(153, 157, 189, 0.259);
 
-.App {
-  text-align: center;
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.App-header {
-  background-color: $myColor;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.loader-container {
+    @include center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    // background: rgba(0, 0, 0, 0.834);
+    z-index: 1;
+}
+
+.loader-container {
+    .spinner {
+        width: 64px;
+        height: 64px;
+        border: 10px solid;
+        border-radius: 50%;
+        border-color: #3d5af1 transparent #3d5af1 transparent;
+        animation: spin-animation 1s linear infinite;
+    }
+}
+
+@keyframes spin-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $myColor;
+}
+
+.height {
+    height: 100vh;
+}
+
+.center {
+    justify-content: center;
+    display: flex;
+}
+
+.card {
+    @include center;
+    background-color: rgb(169, 183, 178);
+    flex-direction: column;
+    margin: auto;
+    padding: 10px;
+    border: 5px solid rgb(98, 12, 12);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header {
+    border-bottom: 2px solid black;
+    background-color: azure;
+    text-align: center;
+    padding: 10px 10px;
+    width: 100%;
+}
+
+.btn {
+    margin: 10px;
+    padding: 0px 20px;
+}
+
+.icon {
+    padding: 20px
 }
 
 div .Link {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: #33363b;
+
 }
+
+$color_1: white;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_1: #f2f2f2;
+$background-color_2: #ddd;
+$background-color_3: #808d89;
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-}
+    font-family: $font-family_1;
+    border-collapse: collapse;
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
 
-tr:nth-child(even){
-  background-color: #33363b;
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: $background-color_3;
+        color: $color_1;
+    }
+
+    tr {
+        &:nth-child(even) {
+            background-color: $background-color_1;
+        }
+
+        &:hover {
+            background-color: $background-color_2;
+        }
+    }
 }
