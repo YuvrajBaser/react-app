@@ -24,7 +24,7 @@ var OrdersSingleProduct = ({ data }) => {
                 <h1 className="header">Product Details</h1>
                 <div className="center">
                     <button className="btn"><Link className="Link" to={`/Orders/${orderNumber}`}><h3>Go Back</h3></Link></button>
-                    <button className="btn"><Link className="Link" to={`/`}><h3>Profile</h3></Link></button>
+                    <button className="btn"><Link className="Link" to={`/`}><h3>Show Profile</h3></Link></button>
                 </div>
                 <div>
                     {

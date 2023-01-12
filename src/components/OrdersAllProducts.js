@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import left from "./arrow-left.png"
 
 var OrdersAllProducts = ({ data }) => {
     let allProducts = data.orders.nodes;
@@ -13,9 +14,10 @@ var OrdersAllProducts = ({ data }) => {
     return (
         <div className="container">
             <h1 className="header" >All Products</h1>
-            <div className="center">
+            <Link className="Link btn-back" to={"/Orders"}><img className="icon" src={left}></img></Link>
+            {/* <div className="center">
                 <button className="btn"><Link className="Link" to={"/Orders"}><h3>Go Back</h3></Link></button>
-            </div>
+            </div> */}
             <table>
                 <thead>
                     <tr>

@@ -5,9 +5,7 @@ var Orders = ({ data }) => {
     return (
         <div className="container">
             <h1 className="header">Orders</h1>
-            <div className="center">
-                <Link className="Link" to={"/"}><img className="icon" src="arrow-left.png"></img></Link>
-            </div>
+            <Link className="Link btn-back" to={"/"}><img src="arrow-left.png"></img></Link>
             <table>
                 <thead>
                     <tr>

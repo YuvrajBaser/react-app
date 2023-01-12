@@ -6,9 +6,7 @@ var Addresses = ({ data }) => {
     return (
         <div className="container">
             <h1 className="header">Addresses</h1>
-            <div className="center">
-                <Link className="Link" to={"/"}><img className="icon" src="arrow-left.png"></img></Link>
-            </div>
+            <Link className="Link btn-back" to={"/"}><img className="icon" src="arrow-left.png"></img></Link>
             {/* <h4>Default Address</h4> */}
             <div>
                 <table>
